@@ -20,6 +20,8 @@
     "webpack-dev-server": "^2.9.7"
   },
   "scripts": {
+    "watch": "webpack --watch",
+    "production": "webpack -p",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "dev": "webpack-dev-server"

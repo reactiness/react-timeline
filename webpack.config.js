@@ -32,9 +32,12 @@ module.exports = {
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
-                use: [
-                    'babel-loader',
-                ],
+                use: {
+					loader: 'babel-loader',
+					options: {
+						presets: ['env']
+					}
+				}
             },
             // Files will get handled by css loader and then passed to the extract text plugin which will write it to the file defined above in plugins
             {
