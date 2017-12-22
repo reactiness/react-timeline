@@ -27,17 +27,30 @@ module.exports = {
     ],
 
     module: {
+        loaders: [
+            
+            // Tell webpack to use "babel-loader" for .js and .jsx files. eslint for linting.
+            {
+                test: /\.jsx?$/,
+                exclude: /node_modules/,
+                loader: 'react-hot-loader!babel-loader'
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                loaders: ['babel-loader', 'eslint-loader']
+            }
+        ],
         rules: [
-            // Tell webpack to use "babel-loader" for .js and .jsx files
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: {
-					loader: 'babel-loader',
-					options: {
-						presets: ['env']
-					}
-				}
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['env']
+                    }
+                }
             },
             // Files will get handled by css loader and then passed to the extract text plugin which will write it to the file defined above in plugins
             {
