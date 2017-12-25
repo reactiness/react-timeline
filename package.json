@@ -4,6 +4,7 @@
   "description": "A react timline component.",
   "main": "index.js",
   "dependencies": {
+    "eslint-plugin-react": "^7.5.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0"
   },
@@ -30,6 +31,8 @@
   "scripts": {
     "watch": "webpack --watchAll",
     "production": "webpack -p",
+    "lint": "eslint ./src",
+    "lint:fix": "eslint .src --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
