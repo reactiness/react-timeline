@@ -71,6 +71,10 @@ module.exports = {
 
   //Enable importing JS files without specifying their's extenstion
   resolve: {
+    modules: [
+      path.resolve('./src/js'),
+      path.resolve('./node_modules')
+    ],
     extensions: ['.js', '.jsx'],
   },
 };
