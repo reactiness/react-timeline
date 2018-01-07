@@ -30,10 +30,11 @@
     ],        
     "no-trailing-spaces": 2,
     "keyword-spacing": 2,
-    "space-before-function-paren": [
-      2,
-      "never"
-    ],
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "always",
+      "asyncArrow": "always"
+    }],
     "spaced-comment": [2, "always" ],
     "vars-on-top": 2,
     "no-undef": 2,

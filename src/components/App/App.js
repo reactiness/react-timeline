@@ -3,7 +3,7 @@ import '../css/style.css';
 import keenImage from '../assets/keen.png';
 
 export default class App extends Component {
-  render() {
+  render () {
     return (
       <div>
         App from react.
