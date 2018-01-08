@@ -11,8 +11,7 @@ describe('<Timeline />', () => {
         <TimelineItem key={1} header="Header 1">Body 1</TimelineItem>
       ]} />
     );
-    const EXPECTED = 2;
-    expect(wrapper.find('TimelineItem').length).toEqual(EXPECTED);
+    expect(wrapper.find('TimelineItem').length).toEqual(2);
   });
 
   it ('should render the first body', () => {
@@ -22,8 +21,7 @@ describe('<Timeline />', () => {
         <TimelineItem key={1} header="Header 1">Body 1</TimelineItem>
       ]} />
     );
-    const ONE = 1;
-    expect(wrapper.findWhere(x => x.text() === 'Body 0').length).toEqual(ONE);
+    expect(wrapper.findWhere(x => x.text() === 'Body 0').length).toEqual(1);
   });
 
 });
