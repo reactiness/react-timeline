@@ -6,16 +6,30 @@ import PropTypes from 'prop-types';
  */
 export class TimelineItem extends React.Component {
 
+  renderHeader = () =>
+    [
+      <div key="step" style={{ gridArea: 'step' }}>Step</div>,
+      <div key="header"  style={{ gridArea: 'header' }}>
+        {this.props.header}
+      </div>
+    ]
+
   renderChildren = () =>
     this.props.currentStep
-      ? this.props.children
+      ? <div style={{ gridArea: 'body', backgroundColor: '#ddddff' }} >{this.props.children}</div>
       : null
 
   render () {
-    const { header } = this.props;
     return (
-      <div style={{ color: 'red' }}>
-        <div style={{ color: 'green' }}>{header}</div>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: '40px 40px auto',
+          gridTemplateRows: '40px auto',
+          gridTemplateAreas: ' \'. step header\' \'. line body \' '
+        }}
+      >
+        {this.renderHeader()}
         {this.renderChildren()}
       </div>
     );
