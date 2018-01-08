@@ -1,14 +1,27 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Timeline from '../src/components/Timeline/Timeline';
+import { Timeline, TimelineItem, Tester } from '../src/components';
 
 storiesOf('Timeline', module)
   .add(
     'with one element',
-    () => <Timeline />
+    () => (
+      <Tester>
+        <Timeline step={1} steps={[
+          <TimelineItem key={0} header="Step 0">This is step 0</TimelineItem>,
+          <TimelineItem key={1} header="Step 1">This is step 1</TimelineItem>
+        ]} />
+      </Tester>
+    )
   )
   .add(
     'with multiple elements',
-    () => <Timeline />
+    () => (
+      <Tester>
+        <Timeline step={1} steps={[
+          <TimelineItem key={0} header="Step 0">This is step 0</TimelineItem>,
+          <TimelineItem key={1} header="Step 1">This is step 1</TimelineItem>
+        ]} />
+      </Tester>
+    )
   );
- 
