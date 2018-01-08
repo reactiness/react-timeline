@@ -6,17 +6,38 @@ import PropTypes from 'prop-types';
  */
 export class TimelineItem extends React.Component {
 
-  renderHeader = () =>
-    [
-      <div key="step" style={{ gridArea: 'step' }}>Step</div>,
-      <div key="header"  style={{ gridArea: 'header' }}>
-        {this.props.header}
+  renderHeader = () => {
+    const isCurrentStep = this.props.stepIndex === 0;
+    const backgroundColor = isCurrentStep ? 'white' : 'rgb(242, 242, 242)';
+
+    return [
+      <div key="step" style={{ gridArea: 'step', backgroundColor }}>
+        {
+          (this.props.stepIndex < 0) &&
+            <span style={{ color: 'green' }}>✓</span>
+        }
+        {
+          (this.props.stepIndex > 0) &&
+            <span>{this.props.itemStep + 1}</span>
+        }
+        {
+          (isCurrentStep) &&
+            <span>{this.props.itemStep + 1} of {this.props.totalSteps}</span>
+        }
+      </div>,
+      <div key="header" style={{ gridArea: 'header', backgroundColor }}>
+        {
+          this.props.completeHeader && this.props.stepIndex < 0
+            ? this.props.completeHeader
+            : this.props.header
+        }
       </div>
-    ]
+    ];
+  }
 
   renderChildren = () =>
-    this.props.currentStep
-      ? <div style={{ gridArea: 'body', backgroundColor: '#ddddff' }} >{this.props.children}</div>
+    this.props.stepIndex === 0
+      ? <div style={{ gridArea: 'body' }} >{this.props.children}</div>
       : null
 
   render () {
@@ -39,5 +60,8 @@ export class TimelineItem extends React.Component {
 TimelineItem.propTypes = {
   header: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  currentStep: PropTypes.bool
+  completeHeader: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  stepIndex: PropTypes.number, // injected by timeline
+  totalSteps: PropTypes.number, // injected by timeline
+  itemStep: PropTypes.number // injected by timeline
 };

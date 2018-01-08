@@ -19,21 +19,44 @@ export class Tester extends React.Component {
   handleNext = () =>
     this.setState({ step: this.state.step + 1 });
 
+  sampleBodyText = () =>
+    <div>
+      <h3>Sample text</h3>
+      <p>
+        This is some body text
+      </p>
+      <p>
+        This is some body text
+      </p>
+      <p>
+        This is some body text
+      </p>
+      <p>
+        This is some body text
+      </p>
+      <p>
+        This is some body text
+      </p>
+      <p>
+        This is some body text
+      </p>
+    </div>
+
   render () {
 
     return (
       <div>
         <Timeline step={this.state.step} steps={[
-          <TimelineItem key={0} header="Header for step 0">This is the step 0</TimelineItem>,
-          <TimelineItem key={1} header="Header for step 1">This is the step 1</TimelineItem>,
-          <TimelineItem key={2} header="Header for step 2">This is the step 2</TimelineItem>,
-          <TimelineItem key={3} header="Header for step 3">This is the step 3</TimelineItem>,
-          <TimelineItem key={4} header="Header for step 4">This is the step 4</TimelineItem>,
-          <TimelineItem key={5} header="Header for step 5">This is the step 5</TimelineItem>,
-          <TimelineItem key={6} header="Header for step 6">This is the step 6</TimelineItem>,
-          <TimelineItem key={7} header="Header for step 7">This is the step 7</TimelineItem>,
-          <TimelineItem key={8} header="Header for step 8">This is the step 8</TimelineItem>,
-          <TimelineItem key={9} header="Header for step 9">This is the step 9</TimelineItem>
+          <TimelineItem key={0} header="Header for step 0" completeHeader="Contratulations, you have completed step 0">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={1} header="Header for step 1" completeHeader="Contratulations, you have completed step 1">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={2} header="Header for step 2" completeHeader="Contratulations, you have completed step 2">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={3} header="Header for step 3" completeHeader="Contratulations, you have completed step 3">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={4} header="Header for step 4" completeHeader="Contratulations, you have completed step 4">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={5} header="Header for step 5" completeHeader="Contratulations, you have completed step 5">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={6} header="Header for step 6" completeHeader="Contratulations, you have completed step 6">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={7} header="Header for step 7" completeHeader="Contratulations, you have completed step 7">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={8} header="Header for step 8" completeHeader="Contratulations, you have completed step 8">{this.sampleBodyText()}</TimelineItem>,
+          <TimelineItem key={9} header="Header for step 9" completeHeader="Contratulations, you have completed step 9">{this.sampleBodyText()}</TimelineItem>
         ]} />
         <div>
           <button onClick={this.handlePrevious}>Previous</button>
