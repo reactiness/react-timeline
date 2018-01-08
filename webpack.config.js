@@ -1,5 +1,4 @@
 const path = require('path');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // html plugin
 const ExtractTextPlugin = require('extract-text-webpack-plugin'); // css plugin
 
@@ -7,7 +6,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin'); // css plugin
 const paths = {
   DIST: path.resolve(__dirname, 'dist'),
   SRC: path.resolve(__dirname, 'src'),
-  JS: path.resolve(__dirname, 'src/js'),
+  JS: path.resolve(__dirname, 'src/js')
 };
 
 // Webpack configuration
@@ -21,9 +20,9 @@ module.exports = {
   // Tell webpack to use html plugin
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.join(paths.SRC, 'index.html'),
+      template: path.join(paths.SRC, 'index.html')
     }),
-    new ExtractTextPlugin('style.bundle.css'), // CSS will be extracted to this bundle file
+    new ExtractTextPlugin('style.bundle.css') // CSS will be extracted to this bundle file
   ],
 
   module: {
@@ -56,25 +55,25 @@ module.exports = {
       {
         test: /\.css$/,
         loader: ExtractTextPlugin.extract({
-          use: 'css-loader',
-        }),
+          use: 'css-loader'
+        })
       },
       // File loader for image assets
       {
         test: /\.(png|jpg|gif)$/,
         use: [
-          'file-loader',
-        ],
-      },
-    ],
+          'file-loader'
+        ]
+      }
+    ]
   },
 
-  //Enable importing JS files without specifying their's extenstion
+  // enable importing JS files relative to src, without specifying their full relative path
   resolve: {
     modules: [
       path.resolve('./src'),
       path.resolve('./node_modules')
     ],
-    extensions: ['.js', '.jsx'],
-  },
+    extensions: ['.js', '.jsx']
+  }
 };

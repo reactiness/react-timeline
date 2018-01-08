@@ -1,7 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export default class Timeline extends React.Component {
+export class Timeline extends React.Component {
   render () {
-    return <div>The timeline component.</div>;
+    const { steps, step } = this.props;
+    return (
+      <div>
+        {steps.map((s, i) =>
+          React.cloneElement(s, { currentStep: step === i } )
+        )}
+      </div>
+    );
   }
 }
+
+Timeline.propTypes = {
+  step: PropTypes.number.isRequired,
+  steps: PropTypes.arrayOf(PropTypes.any).isRequired
+};
