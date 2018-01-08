@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Timeline, TimelineItem } from '..';
 
-const ZERO = 0;
-const ONE = 1;
-
 /**
  * The tester is a temporary component that provides buttons
  * to step forwards/backwards through the steps.
@@ -17,10 +14,10 @@ export class Tester extends React.Component {
   }
 
   handlePrevious = () =>
-    this.setState({ step: this.state.step === ZERO ? ZERO : this.state.step - ONE });
+    this.setState({ step: this.state.step === 0 ? 0 : this.state.step - 1 });
 
   handleNext = () =>
-    this.setState({ step: this.state.step + ONE });
+    this.setState({ step: this.state.step + 1 });
 
   render () {
 
