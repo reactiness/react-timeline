@@ -7,7 +7,7 @@ export class Timeline extends React.Component {
     return (
       <div>
         {steps.map((s, i) =>
-          React.cloneElement(s, { currentStep: step === i } )
+          React.cloneElement(s, { stepIndex: i - step, totalSteps: steps.length, itemStep: i } )
         )}
       </div>
     );
