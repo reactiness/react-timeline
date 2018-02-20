@@ -1,0 +1,107 @@
+@import '../../../styles/_theme.scss';
+
+.cp-react-accordion {
+    //transition: max-height 0.2s ease-in-out;
+    .cp-circle-open {
+        margin: 0 auto;
+        width:80px;
+        height:80px;
+        border-radius:40px;
+        border: $BORDER_STD;
+        font-size:12px;
+        color:black;
+        line-height:80px;
+        text-align:center;
+        background-color: $BACKGROUND_COLOR_STD;
+        z-index: 1;
+    }
+    .cp-circle-closed {
+        margin: 0 auto;
+        width:40px;
+        height:40px;
+        border-radius:20px;
+        border: $BORDER_STD;
+        font-size:12px;
+        color:black;
+        line-height:40px;
+        text-align:center;
+        background-color: $BACKGROUND_COLOR_STD;
+        z-index: 1;
+        .fa-check {
+            color: green;
+        }
+        .fa-times {
+            color: red;
+        }
+    }
+    
+    .cp-section-open {
+        box-shadow: $BOX_SHADOW;
+        background-color: white;
+        display: flex;
+        //left: 16px;
+        transition: max-height 0.5s ease-in-out;
+        hr {
+            height: calc(50% - 40px);
+            z-index: -1;
+            margin: 0 auto;
+            border-width: 0px !important;
+            background-color: $BORDER_COLOR;
+        }
+        .hide {
+            background-color: white;
+        }
+        z-index: 2;
+    }
+    
+    .cp-section-closed {
+        background-color: transparent;
+        display: flex;
+        hr {
+            height: calc(50% - 20px);
+            z-index: -1;
+            margin: 0 auto;
+            border-width: 0px !important;
+            background-color: $BORDER_COLOR;
+        }
+        .hide {
+            background-color: $BACKGROUND_COLOR_STD;
+        }
+    }
+    
+    .cp-accordion-left {
+       min-width: 100px;
+       strong {
+           font-size: 26px;
+       }
+    }
+    .cp-accordion-right {
+       padding: 2rem;
+       width: 100%;
+       button {
+           margin-top:  15px;
+       }
+       .cp-accordion-hover:hover{
+           cursor: pointer;
+       }
+    }
+
+}
+
+// .hide {
+//     overflow: hidden;
+//     max-height: 0;
+//     padding-top: 0;
+//     padding-bottom: 0;
+//     margin-top: 0;
+//     margin-bottom: 0;
+//     transition-duration: 0.3s;
+//     transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+// }
+#accordion-show {
+    max-height: 0px;
+    transition-duration: 0.3s !important;
+    transition-timing-function: ease-in !important;
+    max-height: 1000px !important;
+    overflow: hidden !important;
+}
